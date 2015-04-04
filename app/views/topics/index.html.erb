@@ -18,10 +18,9 @@
     <th>Description</th>
     <td><%= pluralize(topic.votes.count, "vote") %></td>
     <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
-    
+    <%if (topic.votes.count > 0)%>
       <td><%= button_to '-1', downvote_topic_path(topic), method: :post %></td>
-    
-      
+    <%end%>
     
     <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
